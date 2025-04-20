@@ -41,11 +41,25 @@ body{
     background-size: 20px 20px;
     padding: 2px 6px
 }
+
+.photos-background{
+    position: fixed;
+    display: grid;
+    width: 80%;
+    height: 90%;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    bottom: 0;
+    outline: 2px solid black;
+}
+
 .navbar{
     background-color: #F8EDEB;
-    position:fixed;
+    position:absolute;
     overflow:hidden;
-    bottom:0;
+    height: 5%;
+    flex-direction: row;
+    bottom: 0;
     width:100%;
     display: flex;
     justify-content: center;
@@ -55,11 +69,30 @@ body{
 .navbar a{
     display: inline-block;
     color:#000000;
+    flex-grow: 1;
     text-decoration:none;
-    padding: 14px 16px;
+    padding: 14px 20px;
     font-size:17px;
 }
 
 .navbar a.active{
-    border: 2px black;
+    outline: 2px black;
+}
+.navbar a {
+    display: flex;
+    color: #000000;
+    flex-grow: 1;
+    text-decoration: none;
+    padding: 14px 20px;
+    font-size: 17px;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar a img {
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
 }
