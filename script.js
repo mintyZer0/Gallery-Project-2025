@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const photoGrid = document.getElementById("photo-grid");
     const imageFolder = "images"; // Folder containing the images
-    const totalImages = 428; // Total number of images
     const batchSize = 20; // Number of images to load per batch
+    let totalImages = 338; // Set the total number of images manually or dynamically via server-side API
     let currentImage = totalImages; // Start from the last image
 
     // Create a modal for viewing full images
@@ -77,8 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Load the first batch of images
-    loadBatch();
-
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
+    if (totalImages > 0) {
+        loadBatch();
+        // Add scroll event listener
+        window.addEventListener("scroll", handleScroll);
+    } else {
+        console.error("No images found in the folder.");
+    }
 });

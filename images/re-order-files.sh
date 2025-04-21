@@ -9,14 +9,14 @@ if [ ! -d "$FILE_DIR" ]; then
     exit 1
 fi
 
-# Debugging: Log the directory being processed
+# Log the directory being processed
 echo "Processing files in directory: $FILE_DIR"
 
 # Counter for sequential numbering
 counter=1
 
-# Sort files by name and loop through all files in the current directory
-find "$FILE_DIR" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | sort | while read -r file; do
+# Sort files numerically and rearrange them sequentially
+find "$FILE_DIR" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | sort -V | while IFS= read -r file; do
     # Debugging: Log the current file being processed
     echo "Processing file: $file"
 
@@ -25,20 +25,16 @@ find "$FILE_DIR" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -in
         # Get the file extension
         extension="${file##*.}"
         # Create a new filename
-        new_name="$FILE_DIR/file${counter}.${extension}"
+        new_name="$FILE_DIR/image${counter}.${extension}"
 
-        # Debugging: Log the new filename
-        echo "New filename: $new_name"
+        # Debugging: Log the expected new filename
+        echo "Expected new filename: $new_name"
 
-        # Rename the file only if the new name is different
-        if [ "$file" != "$new_name" ]; then
-            if mv "$file" "$new_name"; then
-                echo "Renamed $file to $new_name"
-            else
-                echo "Error: Failed to rename $file" >&2
-            fi
+        # Rename the file
+        if mv "$file" "$new_name"; then
+            echo "Renamed $file to $new_name"
         else
-            echo "No renaming needed for $file"
+            echo "Error: Failed to rename $file" >&2
         fi
 
         # Increment the counter
