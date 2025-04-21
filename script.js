@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const photoGrid = document.getElementById("photo-grid");
     const imageFolder = "images"; // Folder containing the images
-    const totalImages = 338; // Total number of images
+    const totalImages = 428; // Total number of images
     const batchSize = 20; // Number of images to load per batch
     let currentImage = totalImages; // Start from the last image
 
