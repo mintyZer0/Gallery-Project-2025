@@ -2,13 +2,14 @@
     background-color: #F8EDEB;
     position: fixed;
     overflow: hidden;
-    height: 5%;
-    flex-direction: row;
-    bottom: 0;
-    width: 100%;
+    height: 60px; /* Set a fixed height for consistency */
+    width: 100%; /* Ensure full width */
     display: flex;
     justify-content: center;
     align-items: center;
+    bottom: 0;
+    padding: 0; /* Remove any padding that could affect size */
+    box-sizing: border-box; /* Ensure padding and border are included in height/width */
 }
 
 .navbar a {
@@ -16,7 +17,7 @@
     color: #000000;
     flex-grow: 1;
     text-decoration: none;
-    padding: 14px 20px;
+    padding: 10px; /* Adjust padding for consistent spacing */
     font-size: 17px;
     justify-content: center;
     align-items: center;
@@ -27,9 +28,7 @@
 }
 
 .navbar a img {
-    max-height: 100%;
-    max-width: 100%;
-    height: auto;
-    width: auto;
-    object-fit: contain;
+    max-height: 40px; /* Set a maximum height for the images */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits within the container */
 }

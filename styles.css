@@ -33,7 +33,7 @@ body {
 }
 
 .top-div {
-    height: 350px;
+    height: 300px;
     width: 100%;
     position: relative;
     background-color: #F6BDD1; /* Swapped to the body's original pink color */
@@ -49,6 +49,7 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
     bottom: 0;
+    z-index: 0; /* Ensure it does not overlap the navbar */
 }
 
 #photo-grid {
@@ -103,51 +104,6 @@ body {
         border-radius: 3px; /* Reduce border radius for smaller screens */
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for mobile */
     }
-}
-
-.navbar {
-    background-color: #F8EDEB;
-    position: fixed; /* Changed from absolute to fixed */
-    overflow: hidden;
-    height: 5%;
-    flex-direction: row;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbar a {
-    display: inline-block;
-    color: #000000;
-    flex-grow: 1;
-    text-decoration: none;
-    padding: 14px 20px;
-    font-size: 17px;
-}
-
-.navbar a.active {
-    outline: 2px black;
-}
-
-.navbar a {
-    display: flex;
-    color: #000000;
-    flex-grow: 1;
-    text-decoration: none;
-    padding: 14px 20px;
-    font-size: 17px;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbar a img {
-    max-height: 100%;
-    max-width: 100%;
-    height: auto;
-    width: auto;
-    object-fit: contain;
 }
 
 #image-modal {

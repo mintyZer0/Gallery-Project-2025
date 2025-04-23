@@ -1,14 +1,15 @@
 body {
     background-color: #F8EDEB; /* Swapped to the div's original pink color */
     display: flex; /* Make the body a flex container */
-    justify-content: center; /* Center horizontally */
-    align-items: flex-start; /* Center vertically */
+    justify-content: flex-start; /* Align content at the top */
+    align-items: stretch; /* Ensure children take full width */
     height: 100vh; /* Ensure the body takes the full viewport height */
     max-width: 100%;
     margin: 0; /* Remove default body margin */
     padding: 0; /* Remove default body padding */
     font-family: 'Arial', sans-serif; /* Add a default font for the body */
     line-height: 1.6; /* Improve readability */
+    flex-direction: column; /* Ensure elements stack vertically */
 }
 
 .top-header {
@@ -26,6 +27,7 @@ body {
     text-align: center; /* Center-align text */
     gap: 0; /* Ensure no additional gap between children */
     transition: background-color 0.3s ease; /* Smooth transition for background color */
+    margin-bottom: 20px; /* Add spacing below the header */
 }
 
 .top-header:hover {
@@ -67,7 +69,20 @@ button {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-    background-color: #E89CA4; /* Darker pink on hover */
-    transform: scale(1.05); /* Slightly enlarge the button */
+
+.letter{
+    margin: 20px;
+}
+
+.letter a img{
+    object-fit: contain;
+    height: auto;
+    width: 30%;
+}
+
+a {
+    display: block; /* Ensure the <a> element behaves like a block element */
+    margin: 0 auto; /* Center the <a> element horizontally */
+    margin-top: 0; /* Remove any additional top margin */
+    text-align: center; /* Center the <a> element's content */
 }
