@@ -7,6 +7,8 @@ body {
     max-width: 100%;
     margin: 0; /* Remove default body margin */
     padding: 0; /* Remove default body padding */
+    font-family: 'Arial', sans-serif; /* Add a default font for the body */
+    line-height: 1.6; /* Improve readability */
 }
 
 .top-header {
@@ -20,3 +22,52 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    flex-direction: column; /* Stack children vertically */
+    text-align: center; /* Center-align text */
+    gap: 0; /* Ensure no additional gap between children */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.top-header:hover {
+    background-color: #E89CA4; /* Slightly darker pink on hover */
+}
+
+.top-header h1 {
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    font-size: 2rem; /* Increase font size for better hierarchy */
+    font-weight: bold; /* Make the header bold */
+    letter-spacing: 1px; /* Add spacing for a modern look */
+}
+
+.top-header p {
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    font-size: 1rem; /* Adjust font size for better readability */
+    color: #555555; /* Use a lighter gray for contrast */
+}
+
+#p1 {
+    font-family: 'Monsteratt';
+    margin: 0; /* Remove default margin if necessary */
+    color: #333333;
+    font-size: 0.6rem;
+    font-style: italic; /* Add emphasis to the text */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Add a subtle text shadow */
+}
+
+button {
+    font-family: 'Monsteratt', sans-serif;
+    background-color: #F6BDD1; /* Match the header's color */
+    color: #333333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #E89CA4; /* Darker pink on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
