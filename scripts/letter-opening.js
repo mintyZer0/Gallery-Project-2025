@@ -1,20 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Script loaded and DOM fully parsed."); // Debugging log
 
-    const letterImages = document.querySelectorAll(".letter a img");
+    // Add event listeners to all letter links
+    document.querySelectorAll('.letter a').forEach(anchor => {
+        anchor.addEventListener('click', event => {
+            event.preventDefault(); // Prevent default link behavior
+            const overlayId = anchor.getAttribute('data-overlay'); // Get the corresponding overlay ID
+            console.log(`Clicked letter. Data-overlay: ${overlayId}`); // Debugging log
 
-    if (letterImages.length > 0) {
-        console.log("Found letter images:", letterImages); // Debugging log
-        letterImages.forEach((letterImage) => {
-            letterImage.addEventListener("click", (event) => {
-                event.preventDefault(); // Prevent default anchor behavior
-                letterImage.src = "../png/letter-opened.png"; // Update with the correct path
-
-                // Debugging: Log to confirm the click event is triggered
-                console.log("Letter image clicked. Source updated to:", letterImage.src);
-            });
+            const overlay = document.getElementById(overlayId);
+            if (overlay) {
+                console.log(`Found overlay with ID: ${overlayId}`); // Debugging log
+                overlay.classList.remove('hidden'); // Show the overlay
+                document.body.classList.add('blurred'); // Blur the background
+            } else {
+                console.error(`Overlay with ID "${overlayId}" not found. Check the data-overlay attribute and corresponding ID.`);
+            }
         });
-    } else {
-        console.error("No .letter a img elements were found in the DOM.");
-    }
+    });
+
+    // Add event listeners to all close buttons
+    document.querySelectorAll('.close-overlay').forEach(button => {
+        button.addEventListener('click', () => {
+            const overlay = button.closest('.overlay'); // Get the parent overlay
+            if (overlay) {
+                console.log(`Closing overlay with ID: ${overlay.id}`); // Debugging log
+                overlay.classList.add('hidden'); // Hide the overlay
+                document.body.classList.remove('blurred'); // Remove blur from the background
+            } else {
+                console.error('Overlay element not found. Ensure the close button is inside the overlay.');
+            }
+        });
+    });
 });

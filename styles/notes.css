@@ -1,15 +1,19 @@
 body {
     background-color: #F8EDEB; /* Swapped to the div's original pink color */
+    position: relative;
     display: flex; /* Make the body a flex container */
     justify-content: flex-start; /* Align content at the top */
     align-items: stretch; /* Ensure children take full width */
-    height: 100vh; /* Ensure the body takes the full viewport height */
+    min-height: 100vh; /* Allow the body to grow dynamically */
+    height: auto; /* Remove fixed height */
     max-width: 100%;
     margin: 0; /* Remove default body margin */
     padding: 0; /* Remove default body padding */
     font-family: 'Arial', sans-serif; /* Add a default font for the body */
     line-height: 1.6; /* Improve readability */
     flex-direction: column; /* Ensure elements stack vertically */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .top-header {
@@ -18,7 +22,8 @@ body {
     display: flex;
     max-width: 100%;
     width: 100%;
-    height: 20%;
+    flex-grow: 1; /* Allow the top-header to grow within the flex container */
+    height: 300px; /* Remove fixed height if necessary */
     background-color: #F6BDD1; /* Swapped to the body's original pink color */
     align-items: center;
     justify-content: center;
@@ -69,12 +74,11 @@ button {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-
-.letter{
+.letter {
     margin: 20px;
 }
 
-.letter a img{
+.letter a img {
     object-fit: contain;
     height: auto;
     width: 30%;
@@ -85,4 +89,110 @@ a {
     margin: 0 auto; /* Center the <a> element horizontally */
     margin-top: 0; /* Remove any additional top margin */
     text-align: center; /* Center the <a> element's content */
+}
+
+#overlay {
+    position: fixed; /* Ensure it is fixed to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
+    display: none; /* Default to hidden */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 999999; /* Ensure it appears on top of everything */
+}
+
+#overlay.hidden {
+    display: none; /* Ensure this hides the overlay when applied */
+}
+
+#overlay:not(.hidden) {
+    display: flex; /* Ensure the overlay is displayed when not hidden */
+}
+
+.hidden {
+    display: none !important; /* Ensure this hides any element with the hidden class */
+}
+
+.overlay {
+    position: fixed; /* Ensure it is fixed to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
+    display: flex; /* Default to flex for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 999999; /* Ensure it appears on top of everything */
+}
+
+.overlay-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    height: auto;
+    max-width: 90%; /* Ensure it fits smaller screens */
+    max-height: 80vh; /* Limit the height to 80% of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for better visibility */
+    margin: 0 auto; /* Center horizontally if needed */
+}
+
+.overlay-content p {
+    text-align: left;
+    margin: 0 0 20px; /* Add spacing below the text */
+    font-size: 16px;
+    color: #333; /* Ensure text is visible */
+}
+
+.overlay-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+body.blurred {
+    overflow: auto;
+    /* filter: blur(5px); */ /* Commented out the blur effect */
+}
+
+.close-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Neutral dark gray color */
+    cursor: pointer;
+    z-index: 1000000; /* Ensure it appears above everything */
+    transition: color 0.3s ease;
+}
+
+.close-overlay:hover {
+    color: #555; /* Slightly lighter gray on hover */
+}
+
+.image-container img{
+    position: relative;
+    height: auto;
+    width: 70%;
+    max-width: 100%;
+    margin: 8px 0 8px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    object-fit: contain;
 }
