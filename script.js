@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const photoGrid = document.getElementById("photo-grid");
     const imageFolder = "images"; // Folder containing the images
     const batchSize = 20; // Number of images to load per batch
-    let totalImages = 338; // Set the total number of images manually or dynamically via server-side API
+    let totalImages = 427; // Set the total number of images manually or dynamically via server-side API
     let currentImage = totalImages; // Start from the last image
 
     // Create a modal for viewing full images

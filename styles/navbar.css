@@ -1,0 +1,35 @@
+.navbar {
+    background-color: #F8EDEB;
+    position: fixed;
+    overflow: hidden;
+    height: 5%;
+    flex-direction: row;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar a {
+    display: flex;
+    color: #000000;
+    flex-grow: 1;
+    text-decoration: none;
+    padding: 14px 20px;
+    font-size: 17px;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar a.active {
+    outline: 2px black;
+}
+
+.navbar a img {
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+}
